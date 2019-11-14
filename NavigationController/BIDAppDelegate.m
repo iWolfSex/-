@@ -7,7 +7,8 @@
 //
 
 #import "BIDAppDelegate.h"
-
+#import "BIDRootViewController.h"
+#import "BIDnavigationController.h"
 @implementation BIDAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -15,7 +16,16 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    BIDRootViewController*rootviewcomtroller=[[BIDRootViewController alloc]init];
+    /*UINavigationController*navigation=[[UINavigationController alloc]initWithRootViewController:rootviewcomtroller];
+    //ios 5.0
+    if ([navigation.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)]) {
+        [navigation.navigationBar setBackgroundImage:[UIImage imageNamed:@"zhuti1"] forBarMetrics:UIBarMetricsDefault];
+    }*/
+    BIDnavigationController*navigation=[[BIDnavigationController alloc]initWithRootViewController:rootviewcomtroller];
+    self.window.rootViewController=navigation;
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
